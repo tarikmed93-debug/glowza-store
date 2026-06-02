@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE:      glowza_db
+      MYSQL_USER:          glowza_user
+      MYSQL_PASSWORD:      glowza_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wordpress:
+    build: .
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST:     db:3306
+      WORDPRESS_DB_NAME:     glowza_db
+      WORDPRESS_DB_USER:     glowza_user
+      WORDPRESS_DB_PASSWORD: glowza_pass
+      WORDPRESS_SITE_URL:    http://localhost:8080
+      WORDPRESS_ADMIN_USER:     admin
+      WORDPRESS_ADMIN_PASSWORD: glowza2024!
+      WORDPRESS_ADMIN_EMAIL:    bonjour@glowza.fr
+    volumes:
+      - wp_uploads:/var/www/html/wp-content/uploads
+
+volumes:
+  db_data:
+  wp_uploads:
