@@ -610,3 +610,250 @@ h3 { font-size: clamp(1.1rem, 3vw, 1.4rem); }
 @media print {
   .site-header, .site-footer, .woocommerce-breadcrumb { display: none; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   HOMEPAGE
+══════════════════════════════════════════════════════════════════ */
+
+/* Top bar animée */
+.glowza-top-bar {
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 8px 16px;
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+/* Hero */
+.glowza-hero__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.glowza-hero__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.glowza-hero__trust {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  color: var(--color-text-light);
+}
+.glowza-hero__trust span { display: flex; align-items: center; gap: 4px; }
+
+/* Sections */
+.glowza-section { padding: 48px 0; }
+.glowza-section--light { background: var(--color-primary-xlight); }
+.glowza-container { max-width: var(--max-width); margin: 0 auto; padding: 0 16px; }
+
+.glowza-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.glowza-section__title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.glowza-link-all {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Grille catégories */
+.glowza-cats-section { padding: 32px 0; }
+.glowza-cats-section .glowza-section__title { margin-bottom: 20px; }
+
+.glowza-cats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 600px) { .glowza-cats-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; } }
+
+.glowza-cat-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  text-decoration: none; color: var(--color-text);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 16px 8px 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: center;
+}
+.glowza-cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); color: var(--color-primary); }
+
+.glowza-cat-card__icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--color-primary-xlight);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  overflow: hidden;
+}
+.glowza-cat-card__icon img { width: 100%; height: 100%; object-fit: cover; }
+
+.glowza-cat-card__name { font-size: .78rem; font-weight: 600; line-height: 1.3; }
+
+/* Grille produits custom */
+.glowza-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px)  { .glowza-products-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .glowza-products-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.glowza-products-grid--4 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 1024px) { .glowza-products-grid--4 { grid-template-columns: repeat(4, 1fr); } }
+
+/* Carte produit custom */
+.glowza-product-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+.glowza-product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.glowza-product-card__img-wrap {
+  display: block; position: relative;
+  aspect-ratio: 4/5; overflow: hidden;
+  background: var(--color-beige);
+}
+.glowza-product-card__img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .4s ease;
+}
+.glowza-product-card:hover .glowza-product-card__img-wrap img { transform: scale(1.05); }
+
+.glowza-product-card__overlay {
+  position: absolute; inset: 0;
+  background: rgba(232, 132, 154, .15);
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 16px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.glowza-product-card:hover .glowza-product-card__overlay { opacity: 1; }
+.glowza-product-card__overlay span {
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: .8rem; font-weight: 600;
+  padding: 6px 16px; border-radius: var(--radius-full);
+}
+
+.glowza-product-card__no-img {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  background: var(--color-primary-xlight);
+}
+
+.glowza-product-card__body { padding: 12px; }
+
+.glowza-product-card__name {
+  display: block; font-size: .88rem; font-weight: 600;
+  color: var(--color-text); text-decoration: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+.glowza-product-card__name:hover { color: var(--color-primary); }
+
+.glowza-product-card__footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.glowza-product-card__price {
+  font-size: 1rem; font-weight: 700; color: var(--color-primary);
+}
+
+.glowza-btn-cart {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--color-primary-xlight);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-primary);
+  transition: background var(--transition), color var(--transition);
+}
+.glowza-btn-cart:hover { background: var(--color-primary); color: var(--color-white); }
+
+.glowza-product-card__out { font-size: .75rem; color: var(--color-text-muted); }
+
+/* Bannière promo */
+.glowza-promo-banner {
+  background: linear-gradient(135deg, #1E1E1E 0%, #3a1a2e 100%);
+  padding: 48px 0;
+}
+.glowza-promo-banner__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+.glowza-promo-banner .glowza-promo-banner__tag {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: var(--radius-full); margin-bottom: 12px;
+}
+.glowza-promo-banner h2 { color: var(--color-white); font-size: 1.8rem; margin-bottom: 10px; }
+.glowza-promo-banner p  { color: #CCC; margin-bottom: 20px; }
+.glowza-promo-banner__deco { font-size: 5rem; opacity: .15; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .glowza-promo-banner__deco { display: none; }
+  .glowza-promo-banner h2 { font-size: 1.4rem; }
+}
+
+/* Réassurance */
+.glowza-reassurance { background: var(--color-beige); padding: 40px 0; }
+.glowza-reassurance__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 768px) { .glowza-reassurance__grid { grid-template-columns: repeat(4, 1fr); } }
+
+.glowza-reassurance__item { text-align: center; }
+.glowza-reassurance__icon { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+.glowza-reassurance__item strong { display: block; font-size: .9rem; margin-bottom: 4px; }
+.glowza-reassurance__item p { font-size: .8rem; color: var(--color-text-light); margin: 0; }
+
+/* Sticky cart feedback */
+.glowza-cart-feedback {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: #222; color: #fff; padding: 10px 20px; border-radius: var(--radius-full);
+  font-size: .9rem; font-weight: 600; opacity: 0;
+  transition: all .3s ease; z-index: 9000; white-space: nowrap;
+}
+.glowza-cart-feedback.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Sticky add to cart (mobile fiche produit) */
+.glowza-sticky-cart {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--color-white); border-top: 1px solid var(--color-border);
+  padding: 12px 16px;
+  transform: translateY(100%);
+  transition: transform .3s ease;
+  z-index: 500;
+}
+.glowza-sticky-cart.visible { transform: translateY(0); }
+.glowza-sticky-cart__btn { width: 100%; padding: 14px; font-size: 1rem; }
