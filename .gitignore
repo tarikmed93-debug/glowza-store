@@ -1,0 +1,47 @@
+# WordPress core (installé via WP-CLI, non versionné)
+wordpress/
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Plugins tiers (installés via WP-CLI ou Composer)
+wp-content/plugins/woocommerce/
+wp-content/plugins/storefront/
+wp-content/plugins/stripe-woocommerce/
+wp-content/plugins/woocommerce-paypal-payments/
+wp-content/plugins/wp-mail-smtp/
+wp-content/plugins/polylang/
+wp-content/plugins/cookie-notice/
+
+# Fichiers sensibles
+.env
+.env.local
+wp-config.php
+wp-config-local.php
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / Playwright
+node_modules/
+tests/playwright/node_modules/
+tests/playwright/test-results/
+tests/playwright/playwright-report/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+debug.log
