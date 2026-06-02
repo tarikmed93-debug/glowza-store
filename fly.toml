@@ -1,0 +1,29 @@
+[app]
+name = "glowza-store"
+primary_region = "cdg"  # Paris
+
+[build]
+dockerfile = "Dockerfile"
+
+[env]
+WORDPRESS_SITE_URL      = "https://glowza-store.fly.dev"
+WORDPRESS_ADMIN_USER    = "admin"
+WORDPRESS_ADMIN_EMAIL   = "bonjour@glowza.fr"
+
+[[mounts]]
+source      = "glowza_data"
+destination = "/var/www/html/wp-content"
+
+[http_service]
+internal_port       = 80
+force_https         = true
+auto_stop_machines  = true
+auto_start_machines = true
+min_machines_running = 0
+
+[[http_service.checks]]
+grace_period  = "60s"
+interval      = "30s"
+method        = "GET"
+timeout       = "10s"
+path          = "/"
