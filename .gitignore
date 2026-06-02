@@ -45,3 +45,4 @@ tests/playwright/playwright-report/
 # Logs
 *.log
 debug.log
+.github/workflows/
