@@ -46,3 +46,4 @@ tests/playwright/playwright-report/
 *.log
 debug.log
 .github/workflows/
+glowza-skills-pack.zip
